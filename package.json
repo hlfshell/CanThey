@@ -1,0 +1,17 @@
+{
+  "name": "CanThey",
+  "version": "1.0.0",
+  "description": "Given a permissions JSON object (ACL style), determine if the user has access to the given route. Otherwise, reject. Not an authentication module, but an authorization module.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "authorization",
+    "express",
+    "permissios",
+    "roles"
+  ],
+  "author": "Keith Chester",
+  "license": "MIT"
+}
