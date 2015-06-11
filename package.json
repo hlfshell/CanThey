@@ -4,7 +4,7 @@
   "description": "Given a permissions JSON object (ACL style), determine if the user has access to the given route. Otherwise, reject. Not an authentication module, but an authorization module.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -u tdd -reporter tests/tests"
   },
   "keywords": [
     "authorization",
@@ -13,5 +13,11 @@
     "roles"
   ],
   "author": "Keith Chester",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5",
+    "superagent": "^1.2.0",
+    "supertest": "^1.0.1"
+  }
 }
