@@ -60,6 +60,14 @@ describe('CanThey - function', function(){
 	it('should return true if the given permissions is "users:edit:passwords"  w/ givenACL', function(){
 		expect(canThey('users:edit:passwords', givenACL)).to.be.true;
 	});
+	
+	it('should allow splitting by other symbols, like -', function(){
+		expect(canThey('users-edit-passwords', givenACL, { splitBy: '-' })).to.be.true;
+	});
+	
+	it('should remove spaces in a required ACL like "users - edit - pass words"', function(){
+		expect(canThey('users - edit - pass words', givenACL, { splitBy: '-' })).to.be.true;
+	});
 });
 
 describe('CanThey - express, no onRouteCall setup', function(){
