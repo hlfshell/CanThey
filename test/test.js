@@ -1,7 +1,9 @@
 
 var assert = require('chai').assert,
 	expect = require('chai').expect,
-	canThey = require('../index').canThey;
+	canThey = require('../index').canThey,
+	cte = require('../index').Express,
+	httpMocks = require('node-mocks-http');
 	
 var givenACL = 
 	{
@@ -60,6 +62,37 @@ describe('CanThey - function', function(){
 	});
 });
 
-describe('CanThey - express, simple setup', function(){
+describe('CanThey - express, no onRouteCall setup', function(){
+	var canThey, req, res, next;
+	
+	before(function(){
+		canThey = new cte();
+	});
+	
+	beforeEach(function(){
+		req = httpMocks.createRequest();
+		res = httpMocks.createResponse();
+		next = function(){};
+	});
+	
+	it('should return 401 if req.userACL is undefined', function(){
+		
+	});
+	
+	it('should call next if req.userACL is "*" w/ given ACL');
+	
+	it('should call next if req.userACL is admins');
+	
+	it('should return 403 if req.userACL is admins:delete');
+	
+	it('should call next if req.userACL is products:books');
+	
+	it('should call next if req.userACL is products:books:read');
+	
+	it('should return 403 if req.userACL is products:books:write');
+	
+	it('should return 403 if req.userACL is products:music:albums:sell');
+	
+		
 	
 });
