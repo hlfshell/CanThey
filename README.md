@@ -1,5 +1,5 @@
 # CanThey
-A customizeable, flexible authorization checker - useable with or without express.
+A customizeable, flexible authorization checker - usable with or without express.
 
 ## Install
 ```
