@@ -92,37 +92,37 @@ describe('CanThey - express, no onRouteCall setup', function(){
 		});
 	});
 	
-	it('should call next if req.userACL is admins', function(){
+	it('should call next if req.userACL is "admins" w/ given ACL', function(){
 		canThey.do('admins', req, res, function(){
 			expect.ok;
 		});
 	});
 	
-	it('should return 403 if req.userACL is admins:delete', function(){
+	it('should return 403 if req.userACL is "admins:delete" w/ given ACL', function(){
 		canThey.do('admins:delete', req, res, next);
 		
 		expect(res.statusCode).to.be.equal(403);
 	});
 	
-	it('should call next if req.userACL is products:books', function(){
+	it('should call next if req.userACL is "products:books" w/ given ACL', function(){
 		canThey.do('products:books', req, res, function(){
 			expect.ok;
 		});
 	});
 	
-	it('should call next if req.userACL is products:books:read', function(){
+	it('should call next if req.userACL is "products:books:read" w/ given ACL', function(){
 		canThey.do('products:books:read', req, res, function(){
 			expect.ok;
 		});
 	});
 	
-	it('should return 403 if req.userACL is products:books:write', function(){
+	it('should return 403 if req.userACL is "products:books:write" w/ given ACL', function(){
 		canThey.do('products:books:write', req, res, next);
 		
 		expect(res.statusCode).to.be.equal(403);
 	});
 	
-	it('should return 403 if req.userACL is products:music:albums:sell', function(){
+	it('should return 403 if req.userACL is "products:music:albums:sell" w/ given ACL', function(){
 		canThey.do('products:msuic:albums:sell', req, res, next);
 		
 		expect(res.statusCode).to.be.equal(403);
