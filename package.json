@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "clone": "^1.0.2",
-    "controlled-merge": "^1.0.0"
+    "controlled-merge": "^1.0.1"
   }
 }
