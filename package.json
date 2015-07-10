@@ -20,5 +20,9 @@
     "node-mocks-http": "^1.4.3",
     "superagent": "^1.2.0",
     "supertest": "^1.0.1"
+  },
+  "dependencies": {
+    "clone": "^1.0.2",
+    "controlled-merge": "^1.0.0"
   }
 }
