@@ -68,6 +68,12 @@ describe('CanThey - function', function(){
 	it('should remove spaces in a required ACL like "users - edit - pass words"', function(){
 		expect(canThey('users - edit - pass words', givenACL, { splitBy: '-' })).to.be.true;
 	});
+	
+	
+	it('should, if passed an array of permissions, call the combiner function', function(){
+		expect(canThey('admins:fake_ability:action', [givenACL, { 'admins': true }])).to.be.true;
+	});
+	
 });
 
 describe('CanThey - express, no onRouteCall setup', function(){
@@ -136,8 +142,6 @@ describe('CanThey - express, no onRouteCall setup', function(){
 		expect(res.statusCode).to.be.equal(403);
 	});
 	
-	it('should, if passed an array of permissions, call the combiner function');
-
 });
 
 describe('CanThey - express, onRouteCall is used', function(){
