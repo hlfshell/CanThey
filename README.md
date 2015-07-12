@@ -56,7 +56,8 @@ canThey(requiredACL, givenUserPermissions, opts); //returns true or false
 ## Parameters
 
 * requiredACL - Required. The access level required, in a string of similar format to above..
-* givenUserPermissions - Required. The JSON representation of the user's permissions.
+* givenUserPermissions - Required. The JSON representation of the user's permissions OR an array of JSON permissions.
+	* if this is an array, an internal function called canTheyCombiner is used to create a singular permissions object from many permissions objects. A great example of this is if you used role based permisisons and a user had many roles.
 * opts - Optional. Each attribute in opts is optional, with a default value.
   * splitBy - default: ":" - the string delimiter to split the ACL by.
   * removeSpaces - default: true - whether or not to remove all spaces from the ACL.
