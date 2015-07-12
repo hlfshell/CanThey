@@ -63,7 +63,7 @@ canThey(requiredACL, givenUserPermissions, opts); //returns true or false
   * removeSpaces - default: true - whether or not to remove all spaces from the ACL.
 
 # Express Middleware
-There are two forms of Express Middleware available, as shown in the examples below. Both will accept the same parameters.
+There are two forms of Express Middleware available, as shown in the examples below. 
 ```js
 var Cte = require('canthey').Express
 var canThey = new Cte(
@@ -89,7 +89,7 @@ var canThey = new Cte(
 var Cte = require('canthey').Express;
 var canThey = new Cte();
 
-app.get('/admins/edit', canThey.do('admins:edit', req, res, function(){
+app.get('/admins/edit', canThey.do('admins:edit'), function(req, res){
 	res.send('Hello World');
 });
 ```
@@ -99,8 +99,6 @@ app.get('/admins/edit', canThey.do('admins:edit', req, res, function(){
 onRouteCall is a function fired off whenever the middleware is called to determine:
 * the ACL string requirements for the route _ (Required) _
 * the user's JSON permissions (Not required if you're using the request object as the other middleware).
-
-The benefit is that you can use it as more streamlined middleware and it does not have to be the last middleware used.
 
 ```js
 var Cte = require('canthey').Express;
