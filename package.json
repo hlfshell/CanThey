@@ -1,6 +1,6 @@
 {
   "name": "canthey",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Given a permissions JSON object (ACL style), determine if the user has access to the given route. Otherwise, reject. Not an authentication module, but an authorization module.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "clone": "^1.0.2",
-    "controlled-merge": "^1.0.1"
+    "controlled-merge": "^1.2.0"
   }
 }
