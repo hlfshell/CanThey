@@ -21,6 +21,12 @@ var givenACL =
 						read: true
 					},
 				music: false
+			},
+		categories:
+			{
+				"*": {
+					"test": true
+				}
 			}
 	};
 
@@ -72,6 +78,14 @@ describe('CanThey - function', function(){
 	
 	it('should, if passed an array of permissions, call the combiner function', function(){
 		expect(canThey('admins:fake_ability:action', [givenACL, { 'admins': true }])).to.be.true;
+	});
+
+	it('should, return true if the given permission is underneath a *, so "categories:subcatgeory:test" w/ given ACL', function(){
+		expect(canThey('categories:subcategory:test', givenACL)).to.be.true;
+	});
+
+	it('should, return false if the given permission is underneath a *, so "categories:subcatgeory:people" w/ given ACL', function(){
+		expect(canThey('categories:subcategory:people'), givenACL).to.be.false;
 	});
 	
 });
