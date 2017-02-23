@@ -185,7 +185,7 @@ describe('CanThey - express, onRouteCall is used', function(){
 		}).to.throw();
 	});
 
-	it('should return 401 if userACL is undefined', function(){
+	it('should return 403 if userACL is undefined', function(){
 		req.routeACL = null;
 		canThey.do(req, res, next);
 
