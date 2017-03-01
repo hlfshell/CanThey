@@ -25,7 +25,10 @@ var givenACL =
 		categories:
 			{
 				"*": {
-					"test": true
+					"test": true,
+					"users": {
+						"*": "GET"
+					}
 				}
 			}
 	};
@@ -84,10 +87,18 @@ describe('CanThey - function', function(){
 		expect(canThey('categories:subcategory:test', givenACL)).to.be.true;
 	});
 
-	it('should, return false if the given permission is underneath a *, so "categories:subcatgeory:people" w/ given ACL', function(){
-		expect(canThey('categories:subcategory:people'), givenACL).to.be.false;
+	it('should, return false if the given permission is underneath a *, so "categories:subcategory:people" w/ given ACL', function(){
+		expect(canThey('categories:subcategory:people', givenACL)).to.be.false;
 	});
-	
+
+	it('should return true if the given permission is underneat a *, so "categories:subcategory:users:anything:GET" w/ given ACL', function(){
+		expect(canThey('categories:subcategory:users:anything:GET', givenACL)).to.be.true;
+	});
+
+	it('should return false if the given permission is underneat a *, so "categories:subcategory:users:anything:GET" w/ given ACL', function(){
+		expect(canThey('categories:subcategory:users:anything:POST', givenACL)).to.be.false;
+	});
+
 });
 
 describe('CanThey - express, no onRouteCall setup', function(){
