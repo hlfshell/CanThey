@@ -46,7 +46,7 @@ The function is looking against the JSON for either a name match to the same or 
 
 # The CanThey Function
 
-##Initialize and use example
+## Initialize and use example
 ```js
 var canThey = require('canthey').canThey;
 
